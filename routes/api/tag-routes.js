@@ -51,8 +51,7 @@ router.put('/:id', async (req, res) => {
     const tagData = await Tag.update(req.body, {
       where: {
         id: req.params.id,
-      },
-      individualHooks: true
+      }
     });
     if (!tagData[0]) {
       res.status(404).json({ message: 'No Tag with this id!' });
@@ -72,7 +71,6 @@ router.delete('/:id', async (req, res) => {
         id: req.params.id,
       },
     });
-
     if (!tagData) {
       res.status(404).json({ message: 'No Tag found with that id!' });
       return;
